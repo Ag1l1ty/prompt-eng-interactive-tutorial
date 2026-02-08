@@ -40,7 +40,21 @@ prompt-eng-interactive-tutorial/
 ├── 11_System_Prompts_Avanzados.ipynb       (capitulo nuevo)
 ├── 12.1_Apendice_Encadenamiento_de_Prompts.ipynb
 ├── 12.2_Apendice_Uso_de_Herramientas.ipynb (reescrito con API moderna)
-└── 12.3_Apendice_Busqueda_y_Recuperacion.ipynb
+├── 12.3_Apendice_Busqueda_y_Recuperacion.ipynb
+└── streamlit_app/
+    ├── app.py                          # Pagina de inicio
+    ├── requirements.txt                # streamlit, anthropic
+    ├── .streamlit/config.toml          # Tema naranja
+    ├── pages/                          # 14 capitulos interactivos
+    │   ├── 01_Estructura_Basica.py
+    │   ├── 02_Ser_Claro_y_Directo.py
+    │   ├── ...
+    │   └── 14_RAG.py
+    └── utils/
+        ├── api.py                      # Claude API wrapper (normal + thinking + tools)
+        ├── components.py               # UI reutilizable (ejercicios, lecciones)
+        ├── grading.py                  # 26 funciones de calificacion
+        └── data.py                     # Documentos de referencia (Cap 8-9)
 ```
 
 ## Tareas Completadas
@@ -53,6 +67,7 @@ prompt-eng-interactive-tutorial/
 6. **Bugs corregidos** - #56 (hints not found), #61 (modelo deprecado), #48 (hallucination explanation), #11 (typo), #10 (f-string), #43 (link 404), #2 (LICENSE).
 7. **Traduccion completa** - Todos los notebooks con markdown en espanol, prompts en ingles, comentarios en espanol.
 8. **Tool Use modernizado (12.2)** - Reescrito con API nativa: parametro `tools`, JSON Schema, `ToolUseBlock`, bucle agentico.
+9. **Streamlit Web App** - App interactiva con 14 paginas, 26 ejercicios calificados, soporte para extended thinking y tool use. Deployable en Streamlit Cloud.
 
 ## Convenciones Tecnicas
 

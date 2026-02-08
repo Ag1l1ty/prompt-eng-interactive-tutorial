@@ -21,7 +21,24 @@ Este curso te proporciona una comprension paso a paso de como disenar prompts op
 
 ## Como Empezar
 
-### Opcion 1: Ejecucion Local
+### Opcion 1: Web App (Recomendado)
+
+La forma mas facil de usar el tutorial es la **web app interactiva** con Streamlit:
+
+1. Clona el repositorio y ejecuta la app:
+```bash
+git clone https://github.com/Ag1l1ty/prompt-eng-interactive-tutorial.git
+cd prompt-eng-interactive-tutorial
+pip install -r streamlit_app/requirements.txt
+streamlit run streamlit_app/app.py
+```
+
+2. Ingresa tu API key de Anthropic en la barra lateral
+3. Navega por los capitulos y completa los ejercicios interactivos
+
+Tambien puedes deployar la app gratis en [Streamlit Cloud](https://streamlit.io/cloud) conectando tu fork del repositorio.
+
+### Opcion 2: Jupyter Notebooks
 
 1. Clona este repositorio:
 ```bash
@@ -41,7 +58,7 @@ jupyter notebook
 
 4. En el notebook 00, configura tu API key y ejecuta las celdas en orden.
 
-### Opcion 2: Google Colab
+### Opcion 3: Google Colab
 
 1. Sube todos los archivos `.ipynb` y `hints.py` a tu Google Drive o directamente a Colab
 2. Abre `00_Tutorial_Como_Empezar.ipynb` en Colab

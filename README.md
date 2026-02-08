@@ -1,58 +1,104 @@
-# Welcome to Anthropic's Prompt Engineering Interactive Tutorial
+# Tutorial Interactivo de Ingenieria de Prompts con Claude
 
-## Course introduction and goals
+> Basado en el [tutorial original de Anthropic](https://github.com/anthropics/prompt-eng-interactive-tutorial) - Traducido al espanol, actualizado a Claude Opus 4.6, y ampliado con capitulos nuevos.
 
-This course is intended to provide you with a comprehensive step-by-step understanding of how to engineer optimal prompts within Claude.
+## Introduccion
 
-**After completing this course, you will be able to**:
-- Master the basic structure of a good prompt 
-- Recognize common failure modes and learn the '80/20' techniques to address them
-- Understand Claude's strengths and weaknesses
-- Build strong prompts from scratch for common use cases
+Este curso te proporciona una comprension paso a paso de como disenar prompts optimos para Claude. Al completar este curso, seras capaz de:
 
-## Course structure and content
+- Dominar la estructura basica de un buen prompt
+- Reconocer modos de fallo comunes y aprender las tecnicas '80/20' para abordarlos
+- Entender las fortalezas y debilidades de Claude
+- Construir prompts solidos desde cero para casos de uso comunes
+- Usar pensamiento extendido (extended thinking) para problemas complejos
+- Disenar system prompts avanzados para aplicaciones de produccion
 
-This course is structured to allow you many chances to practice writing and troubleshooting prompts yourself. The course is broken up into **9 chapters with accompanying exercises**, as well as an appendix of even more advanced methods. It is intended for you to **work through the course in chapter order**. 
+## Requisitos Previos
 
-**Each lesson has an "Example Playground" area** at the bottom where you are free to experiment with the examples in the lesson and see for yourself how changing prompts can change Claude's responses. There is also an [answer key](https://docs.google.com/spreadsheets/d/1jIxjzUWG-6xBVIa2ay6yDpLyeuOh_hR_ZB75a47KX_E/edit?usp=sharing).
+- Una **API key de Anthropic** - puedes obtener una en la [Consola de Anthropic](https://console.anthropic.com/)
+- Python 3.8+
+- Familiaridad basica con Jupyter Notebooks
 
-Note: This tutorial uses our smallest, fastest, and cheapest model, Claude 3 Haiku. Anthropic has [two other models](https://docs.anthropic.com/claude/docs/models-overview), Claude 3 Sonnet and Claude 3 Opus, which are more intelligent than Haiku, with Opus being the most intelligent.
+## Como Empezar
 
-*This tutorial also exists on [Google Sheets using Anthropic's Claude for Sheets extension](https://docs.google.com/spreadsheets/d/19jzLgRruG9kjUQNKtCg1ZjdD6l6weA6qRXG5zLIAhC8/edit?usp=sharing). We recommend using that version as it is more user friendly.*
+### Opcion 1: Ejecucion Local
 
-When you are ready to begin, go to `01_Basic Prompt Structure` to proceed.
+1. Clona este repositorio:
+```bash
+git clone https://github.com/Ag1l1ty/prompt-eng-interactive-tutorial.git
+cd prompt-eng-interactive-tutorial
+```
 
-## Table of Contents
+2. Instala las dependencias:
+```bash
+pip install -r requirements.txt
+```
 
-Each chapter consists of a lesson and a set of exercises.
+3. Abre Jupyter y comienza con el notebook `00_Tutorial_Como_Empezar.ipynb`:
+```bash
+jupyter notebook
+```
 
-### Beginner
-- **Chapter 1:** Basic Prompt Structure
+4. En el notebook 00, configura tu API key y ejecuta las celdas en orden.
 
-- **Chapter 2:** Being Clear and Direct  
+### Opcion 2: Google Colab
 
-- **Chapter 3:** Assigning Roles
+1. Sube todos los archivos `.ipynb` y `hints.py` a tu Google Drive o directamente a Colab
+2. Abre `00_Tutorial_Como_Empezar.ipynb` en Colab
+3. Configura tu API key y sigue las instrucciones
 
-### Intermediate 
-- **Chapter 4:** Separating Data from Instructions
+## Estructura del Curso
 
-- **Chapter 5:** Formatting Output & Speaking for Claude
+Cada capitulo consiste en una **leccion** y un conjunto de **ejercicios** interactivos. Se recomienda seguir el curso en orden.
 
-- **Chapter 6:** Precognition (Thinking Step by Step)
+### Principiante
+| Capitulo | Tema | Archivo |
+|----------|------|---------|
+| 1 | Estructura Basica de Prompts | `01_Estructura_Basica_de_Prompts.ipynb` |
+| 2 | Ser Claro y Directo | `02_Ser_Claro_y_Directo.ipynb` |
+| 3 | Asignacion de Roles | `03_Asignacion_de_Roles.ipynb` |
 
-- **Chapter 7:** Using Examples
+### Intermedio
+| Capitulo | Tema | Archivo |
+|----------|------|---------|
+| 4 | Separar Datos de Instrucciones | `04_Separar_Datos_de_Instrucciones.ipynb` |
+| 5 | Formato de Output y Hablar por Claude | `05_Formato_de_Output_y_Hablar_por_Claude.ipynb` |
+| 6 | Precognicion (Pensar Paso a Paso) | `06_Precognicion_Pensar_Paso_a_Paso.ipynb` |
+| 7 | Uso de Ejemplos (Few-Shot) | `07_Uso_de_Ejemplos_Few_Shot.ipynb` |
 
-### Advanced
-- **Chapter 8:** Avoiding Hallucinations
+### Avanzado
+| Capitulo | Tema | Archivo |
+|----------|------|---------|
+| 8 | Evitar Alucinaciones | `08_Evitar_Alucinaciones.ipynb` |
+| 9 | Prompts Complejos desde Cero | `09_Prompts_Complejos_desde_Cero.ipynb` |
+| 10 | Pensamiento Extendido (Extended Thinking) | `10_Pensamiento_Extendido.ipynb` |
+| 11 | System Prompts Avanzados | `11_System_Prompts_Avanzados.ipynb` |
 
-- **Chapter 9:** Building Complex Prompts (Industry Use Cases)
-  - Complex Prompts from Scratch - Chatbot
-  - Complex Prompts for Legal Services
-  - **Exercise:** Complex Prompts for Financial Services
-  - **Exercise:** Complex Prompts for Coding
-  - Congratulations & Next Steps
+### Apendices
+| Apendice | Tema | Archivo |
+|----------|------|---------|
+| 12.1 | Encadenamiento de Prompts | `12.1_Apendice_Encadenamiento_de_Prompts.ipynb` |
+| 12.2 | Uso de Herramientas (Tool Use) | `12.2_Apendice_Uso_de_Herramientas.ipynb` |
+| 12.3 | Busqueda y Recuperacion | `12.3_Apendice_Busqueda_y_Recuperacion.ipynb` |
 
-- **Appendix:** Beyond Standard Prompting
-  - Chaining Prompts
-  - Tool Use
-  - Search & Retrieval
+## Notas Tecnicas
+
+- Este curso utiliza **Claude Opus 4.6** (`claude-opus-4-6`) con temperature 0 para resultados deterministicos
+- Todas las tecnicas de este curso tambien se aplican a otros modelos de la familia Claude (Sonnet 4.5, Haiku 4.5)
+- Los prompts de ejemplo se mantienen en **ingles** ya que las tecnicas de ingenieria de prompts son independientes del idioma
+- Las explicaciones, instrucciones y comentarios estan en **espanol**
+
+## Recursos Adicionales
+
+- [Documentacion de Anthropic](https://docs.anthropic.com/)
+- [API de Messages](https://docs.anthropic.com/claude/reference/messages_post)
+- [Guia de Prompt Engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
+- [Clave de respuestas (original en ingles)](https://docs.google.com/spreadsheets/d/1jIxjzUWG-6xBVIa2ay6yDpLyeuOh_hR_ZB75a47KX_E/edit?usp=sharing)
+
+## Atribucion
+
+Este tutorial es una adaptacion al espanol del [Prompt Engineering Interactive Tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) original de Anthropic. Se ha actualizado a modelos actuales (Claude Opus 4.6), se han corregido bugs conocidos, y se han agregado dos capitulos nuevos sobre Pensamiento Extendido y System Prompts Avanzados.
+
+## Licencia
+
+MIT License - Ver [LICENSE](LICENSE) para mas detalles.

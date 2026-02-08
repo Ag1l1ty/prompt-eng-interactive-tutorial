@@ -171,78 +171,54 @@ Find the relevant issues and write the Socratic tutor-style response. Do not giv
 Put each issue in <issue> tags and put your final response in <response> tags.
 """
 
-exercise_10_2_1_solution = """system_prompt = system_prompt_tools_general_explanation + \"\"\"Here are the functions available in JSONSchema format:
-
-<tools>
-
-<tool_description>
-<tool_name>get_user</tool_name>
-<description>
-Retrieves a user from the database by their user ID.
-</description>
-<parameters>
-<parameter>
-<name>user_id</name>
-<type>int</type>
-<description>The ID of the user to retrieve.</description>
-</parameter>
-</parameters>
-</tool_description>
-
-<tool_description>
-<tool_name>get_product</tool_name>
-<description>
-Retrieves a product from the database by its product ID.
-</description>
-<parameters>
-<parameter>
-<name>product_id</name>
-<type>int</type>
-<description>The ID of the product to retrieve.</description>
-</parameter>
-</parameters>
-</tool_description>
-
-<tool_description>
-<tool_name>add_user</tool_name>
-<description>
-Adds a new user to the database.
-</description>
-<parameters>
-<parameter>
-<name>name</name>
-<type>str</type>
-<description>The name of the user.</description>
-</parameter>
-<parameter>
-<name>email</name>
-<type>str</type>
-<description>The email address of the user.</description>
-</parameter>
-</parameters>
-</tool_description>
-
-<tool_description>
-<tool_name>add_product</tool_name>
-<description>
-Adds a new product to the database.
-</description>
-<parameters>
-<parameter>
-<name>name</name>
-<type>str</type>
-<description>The name of the product.</description>
-</parameter>
-<parameter>
-<name>price</name>
-<type>float</type>
-<description>The price of the product.</description>
-</parameter>
-</parameters>
-</tool_description>
-
-</tools>
-\"\"\"
+exercise_10_2_1_solution = """tools_sql = [
+    {
+        "name": "get_user",
+        "description": "Retrieves a user from the database by their user ID.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "user_id": {"type": "integer", "description": "The ID of the user to retrieve"}
+            },
+            "required": ["user_id"]
+        }
+    },
+    {
+        "name": "get_product",
+        "description": "Retrieves a product from the database by its product ID.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "product_id": {"type": "integer", "description": "The ID of the product to retrieve"}
+            },
+            "required": ["product_id"]
+        }
+    },
+    {
+        "name": "add_user",
+        "description": "Adds a new user to the database.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "description": "The name of the user"},
+                "email": {"type": "string", "description": "The email address of the user"}
+            },
+            "required": ["name"]
+        }
+    },
+    {
+        "name": "add_product",
+        "description": "Adds a new product to the database.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "description": "The name of the product"},
+                "price": {"type": "number", "description": "The price of the product"}
+            },
+            "required": ["name"]
+        }
+    }
+]
 """
 
 # Pistas para los nuevos capitulos

@@ -29,7 +29,7 @@ def render_sidebar():
             st.warning("Ingresa tu API key")
 
         st.divider()
-        total = 26
+        total = 24
         done = len(st.session_state.completed)
         st.markdown(f"### Progreso: {done}/{total}")
         st.progress(done / total if total > 0 else 0)

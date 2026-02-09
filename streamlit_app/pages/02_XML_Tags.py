@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import streamlit as st
 from utils.components import render_sidebar, render_lesson, render_exercise
 from utils.grading import grade_2_1, grade_2_2, grade_2_3

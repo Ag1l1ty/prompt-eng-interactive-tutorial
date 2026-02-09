@@ -27,7 +27,7 @@ No todos los elementos son necesarios siempre. Usa los que apliquen a tu caso:
 
 | # | Elemento | Descripcion | Requerido? |
 |---|----------|-------------|------------|
-| 1 | **Contexto de la tarea** | Rol y objetivo general | Recomendado |
+| 1 | **Rol y contexto** | Quien es Claude y cual es su objetivo | Recomendado |
 | 2 | **Tono** | Formal, casual, tecnico, etc. | Opcional |
 | 3 | **Reglas e instrucciones** | Restricciones y comportamientos especificos | Si |
 | 4 | **Ejemplos (few-shot)** | Pares de entrada/salida deseada | Opcional |
@@ -115,11 +115,11 @@ with st.expander("Ver codigo fiscal de referencia (Seccion 83 IRC)"):
     st.text(TAX_CODE[:2000] + "\n\n... [documento completo incluido automaticamente] ...")
     st.code(TAX_CODE, language=None)
 
-sys_prompt_6_1 = st.text_area(
-    "1. System prompt (rol / contexto)",
+rol_6_1 = st.text_area(
+    "1. Rol y contexto",
     value="",
     height=84,
-    key="input_6.1_system",
+    key="input_6.1_rol",
     placeholder="Ej: Eres un asesor fiscal experto en leyes tributarias de EE.UU.",
 )
 
@@ -168,7 +168,7 @@ hint_6_1 = col2.button("Ver pista", key="hint_6.1", use_container_width=True)
 
 if hint_6_1:
     st.info(
-        "Asegurate de incluir: 1) Un system prompt con rol de asesor fiscal. "
+        "Asegurate de incluir: 1) Un rol de asesor fiscal en el campo 'Rol y contexto'. "
         "2) Reglas que obliguen a Claude a usar SOLO el documento. "
         "3) El codigo fiscal se incluye automaticamente. "
         "4) La pregunta sobre la eleccion 83b. "
@@ -178,6 +178,8 @@ if hint_6_1:
 if run_6_1:
     # Ensamblar el prompt completo
     partes_prompt = []
+    if rol_6_1.strip():
+        partes_prompt.append(f"Rol: {rol_6_1.strip()}")
     if tono_6_1.strip():
         partes_prompt.append(f"Tono: {tono_6_1.strip()}")
     if reglas_6_1.strip():
@@ -196,7 +198,7 @@ if run_6_1:
         st.code(prompt_completo[:3000] + ("\n\n... [truncado para visualizacion]" if len(prompt_completo) > 3000 else ""), language=None)
 
     with st.spinner("Claude esta pensando..."):
-        respuesta = get_completion(prompt_completo, system_prompt=sys_prompt_6_1.strip())
+        respuesta = get_completion(prompt_completo)
 
     st.markdown("**Respuesta de Claude:**")
     st.code(respuesta, language=None)
@@ -233,12 +235,12 @@ Rellena los campos para construir tu prompt de tutor socratico.
 Claude **no debe revelar el bug directamente**, sino guiar con preguntas.
 """)
 
-sys_prompt_6_2 = st.text_area(
-    "1. System prompt (rol de tutor)",
+rol_6_2 = st.text_area(
+    "1. Rol de tutor",
     value="",
     height=84,
-    key="input_6.2_system",
-    placeholder="Ej: Eres un tutor de programacion que usa el metodo socratico. Nunca das la respuesta directamente.",
+    key="input_6.2_rol",
+    placeholder="Ej: Actua como un tutor de programacion que usa el metodo socratico. Nunca das la respuesta directamente.",
 )
 
 reglas_6_2 = st.text_area(
@@ -279,9 +281,9 @@ hint_6_2 = col2.button("Ver pista", key="hint_6.2", use_container_width=True)
 
 if hint_6_2:
     st.info(
-        "Clave: 1) Dale a Claude el rol de tutor socratico. "
+        "Clave: 1) Define el rol de tutor socratico en el campo 'Rol de tutor'. "
         "2) Incluye reglas explicitas de NO dar la respuesta. "
-        "3) Incluye el codigo en tags XML. "
+        "3) El codigo se incluye automaticamente en tags XML. "
         "4) Pidele que haga preguntas como 'Que pasa si la lista contiene un cero?' "
         "El bug es que `1 / numeros[i]` falla si `numeros[i] == 0`."
     )
@@ -289,6 +291,8 @@ if hint_6_2:
 if run_6_2:
     # Ensamblar el prompt
     partes_prompt = []
+    if rol_6_2.strip():
+        partes_prompt.append(f"Rol: {rol_6_2.strip()}")
     if reglas_6_2.strip():
         partes_prompt.append(f"Reglas:\n{reglas_6_2.strip()}")
     if contexto_6_2.strip():
@@ -307,7 +311,7 @@ if run_6_2:
         st.code(prompt_completo, language=None)
 
     with st.spinner("Claude esta pensando..."):
-        respuesta = get_completion(prompt_completo, system_prompt=sys_prompt_6_2.strip())
+        respuesta = get_completion(prompt_completo)
 
     st.markdown("**Respuesta de Claude:**")
     st.code(respuesta, language=None)

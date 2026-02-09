@@ -65,24 +65,24 @@ primero empatia, luego opciones concretas.
 
 ---
 
-### Chain of Thought en clasificacion
+### Ejemplos con razonamiento
 
-Cuando combinas ejemplos con la instruccion de **"pensar paso a paso"**,
+Cuando combinas ejemplos con la instruccion de **razonar antes de responder**,
 la precision de Claude mejora significativamente. Esto es especialmente util
 en tareas de clasificacion.
 
 La idea es simple: en vez de pedirle a Claude que de la respuesta directamente,
-le pides que **razone primero** y **luego** de su respuesta final.
+le pides que **analice primero** y **luego** de su respuesta final.
 
-> **Sin Chain of Thought:**
+> **Sin razonamiento:**
 >
 > **Prompt:** "Clasifica este email: 'Quiero saber si el Mixmaster funciona con 220V'"
 >
 > **Respuesta:** "A) Pregunta de pre-venta"
 
-> **Con Chain of Thought:**
+> **Con razonamiento:**
 >
-> **Prompt:** "Analiza este email paso a paso. Identifica las palabras clave,
+> **Prompt:** "Analiza este email. Identifica las palabras clave,
 > el tono y la intencion. Luego da tu clasificacion final en tags `<answer>`."
 >
 > **Respuesta:** "El cliente pregunta sobre voltaje del producto, lo cual indica

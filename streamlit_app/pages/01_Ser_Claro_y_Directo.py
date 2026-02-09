@@ -82,13 +82,9 @@ render_exercise(
 render_exercise(
     exercise_id="1.2",
     title="Correccion Directa",
-    instruction="Usa un **system prompt** con un rol apropiado y un **prompt de usuario** para que Claude identifique el error en esta ecuacion:\n\n`2x - 3 = 9, por lo tanto 2x = 6`\n\nClaude debe indicar claramente que el resultado es **incorrecto**.",
-    hint="Dale a Claude un rol de experto matematico en el system prompt. El error es que si 2x - 3 = 9, entonces 2x = 12, no 6. Asegurate de que Claude use la palabra 'incorrecto' o 'no es correcto' en su respuesta.",
+    instruction="Escribe un prompt claro y directo para que Claude identifique el error en esta ecuacion:\n\n`2x - 3 = 9, por lo tanto 2x = 6`\n\nClaude debe indicar claramente que el resultado es **incorrecto**. Recuerda: se especifico sobre lo que quieres que Claude haga.",
+    hint="El error es que si 2x - 3 = 9, entonces 2x = 12, no 6. Pidele a Claude que verifique la ecuacion paso a paso. Asegurate de que tu prompt sea lo suficientemente claro para que Claude use la palabra 'incorrecto' o 'no es correcto' en su respuesta.",
     grade_fn=grade_1_2,
-    fields=[
-        {"name": "SYSTEM_PROMPT", "label": "System Prompt", "rows": 3},
-        {"name": "PROMPT", "label": "Prompt", "rows": 4},
-    ],
 )
 
 render_exercise(
